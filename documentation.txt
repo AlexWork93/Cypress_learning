@@ -1,0 +1,15 @@
+to start cypress run a command 
+./node_modules/.bin/cypress open
+
+to run tests from the command line:
+./node_modules/.bin/cypress run --spec "cypress/e2e/my_examples/**/*.js"
+to run tests from the command line in headed mode:
+./node_modules/.bin/cypress run --headed --spec "cypress/e2e/my_examples/**/*.js"
+for more info visit:
+https://docs.cypress.io/guides/guides/command-line
+
+to install xpath plugin use:
+npm install --save-dev @cypress/xpath
+
+and add to e2e.js
+require('@cypress/xpath');
