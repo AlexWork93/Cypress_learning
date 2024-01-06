@@ -13,7 +13,7 @@ describe('Automation test store make a purchase', () => {
         cy.get('@title').should('eq', 'Add to Cart')
     });
 
-    it('User scould be able to open detailed item page', () => {
+    it('User should be able to open detailed item page', () => {
         let titles = [];
 
         cy.visit("https://automationteststore.com/");
