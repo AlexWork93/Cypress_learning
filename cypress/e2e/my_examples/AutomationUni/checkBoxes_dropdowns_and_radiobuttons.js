@@ -68,4 +68,30 @@ describe('Checkboxes dropdowns and radiobuttons', () => {
             }
         })
     });
+
+    it('dropdowns', () => {
+        cy.visit('https://www.webdriveruniversity.com/');
+        cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click();
+        cy.get('#dropdowm-menu-1 option:selected').invoke('text').should('be.equal', 'JAVA');
+        cy.get('#dropdowm-menu-2 option:selected').invoke('text').should('be.equal', 'Eclipse');
+        cy.get('#dropdowm-menu-3 option:selected').invoke('text').should('be.equal', 'HTML');
+
+        cy.get('#dropdowm-menu-1').select('c#');
+        cy.get('#dropdowm-menu-2').select('testng');
+        cy.get('#dropdowm-menu-3').select('javascript');
+
+
+        cy.get('#dropdowm-menu-1 option:selected').invoke('text').should('be.equal', 'C#');
+        cy.get('#dropdowm-menu-2 option:selected').invoke('text').should('be.equal', 'TestNG');
+        cy.get('#dropdowm-menu-3 option:selected').invoke('text').should('be.equal', 'JavaScript');
+
+        
+        // disabled dropdown option
+
+        cy.get('#fruit-selects').find('[value="orange"]').invoke('attr', 'disabled').should('be.equal', 'disabled');
+        cy.get('#fruit-selects option:selected').invoke('text').should('be.equal', 'Grape');
+        cy.get('#fruit-selects').select('apple');
+        cy.get('#fruit-selects option:selected').invoke('text').should('be.equal', 'Apple');
+
+    });
 });
